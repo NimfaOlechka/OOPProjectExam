@@ -10,7 +10,7 @@ namespace ShopApp
     {
        string GetName();
        double GetDiscount();
-       //void Buy();
+       
     }
     
     

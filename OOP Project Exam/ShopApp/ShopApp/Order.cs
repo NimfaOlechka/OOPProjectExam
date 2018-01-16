@@ -25,6 +25,8 @@ namespace ShopApp
         public void AddItem(IPerson person)
         {
             discount = person.GetDiscount();
+            string name = person.GetName();
+
             double subTotal = 0;
             while (itemPrice != -1)
             {
@@ -34,7 +36,7 @@ namespace ShopApp
             }
             orderSum = subTotal - subTotal * discount;
 
-            Console.WriteLine($"Sum of ur order {subTotal} and ur discount is {discount}. Total sum is {orderSum}");
+            Console.WriteLine($"Sum of ur order {subTotal}. Total sum with discount is {orderSum}");
         }
 
 

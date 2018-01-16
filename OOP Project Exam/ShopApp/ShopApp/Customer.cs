@@ -31,9 +31,9 @@ namespace ShopApp
 
         public void DisplayInfo()
         {
-            Console.WriteLine($"You created  a new customer: {name}, he has discount {discount:P}");
+            Console.WriteLine($"\n You created  a new customer: {name}, he has discount {discount:P}");
         }
-        public void Buy(Callbak callback)
+        public void Buy(Callback callback)
         {
             //call method create order;
             callback(this);

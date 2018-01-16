@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ShopApp
 {
     public enum CustomerType { start=0, little=5, middle=10, big=20 };
-    delegate void Callbak(IPerson person);
+    delegate void Callback(IPerson person);
     class Program
     {
         static void Main(string[] args)
@@ -19,13 +19,24 @@ namespace ShopApp
             customer.DisplayInfo();
             customer.Buy(CreateOrder);
 
-            Employee employee = new Employee("Marta Ross", 2000, Employee.EmployeeStatus.Boss,CustomerType.big);
+            Employee employee = new Employee("Jocker", 2000, Employee.EmployeeStatus.Boss,CustomerType.big);
             employee.DisplayInfo();
-           
+            employee.Buy(CreateOrder);
 
-            
-            CreateOrder(customer);
-            CreateOrder(employee);
+            Employee[] workers = new Employee[3];
+            for (int i=0; i<workers.Length; i++)
+            {
+                workers[i] = new Employee("Mr "+(i+1), 50, Employee.EmployeeStatus.Worker, CustomerType.little);
+            }
+
+            for (int i = 0; i < workers.Length; i++)
+            {
+                workers[i].DisplayInfo();
+                workers[i].Buy(CreateOrder);
+            }
+          
+            //CreateOrder(customer);
+            //CreateOrder(employee);
 
 
             Console.ReadLine();

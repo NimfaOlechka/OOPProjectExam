@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 namespace ShopApp
 {
     
-    class Employee: IPerson
+    class Employee: IPerson, IComparable
     {
-        public delegate void Callback(IPerson person);
-        internal enum EmployeeStatus { Boss, AccountManager, Worker};
+        
+        internal enum EmployeeStatus { Boss, AccountManager,SalesManager,Worker};
         private string name;
         private double salary;
         private double discount;
         EmployeeStatus status = EmployeeStatus.Worker;
         CustomerType type = CustomerType.middle;
-        Callback callback;
+
         public Employee(string name, double salary, EmployeeStatus status, CustomerType type)
         {
             this.name = name;
@@ -38,12 +38,15 @@ namespace ShopApp
 
         public void DisplayInfo()
         {
-            Console.WriteLine($"You created {status} {name}, who has salary of {salary:C} and discount {discount:P}");
+            Console.WriteLine($"\n You created {status} {name}, who has salary of {salary:C} and discount {discount:P}");
         }
 
-        public void Buy()
+
+
+        public void Buy(Callback callback)
         {
-           // call create order method
+            // call create order method
+            callback(this);
         }
     }
 }
