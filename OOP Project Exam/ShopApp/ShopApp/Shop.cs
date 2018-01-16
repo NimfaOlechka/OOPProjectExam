@@ -20,8 +20,8 @@ namespace ShopApp
         public void DisplayTitle()
         {
 
-            Console.WriteLine($"\n Wellcome to shop {Name}");
-            Console.WriteLine($"\n Adresse: {Addresse}");
+            Console.WriteLine($"Wellcome to shop {Name}");
+            Console.WriteLine($"Adresse: {Addresse}");
             for (int i=0; i<30; i++)
             {
                 Console.Write("=");

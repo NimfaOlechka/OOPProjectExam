@@ -13,21 +13,22 @@ namespace ShopApp
         static void Main(string[] args)
         {
             //start shop
-            //Shop shop = new Shop("WebShop", "H.C.Andersensvej 8");
-            //shop.DisplayTitle()
+            Shop shop = new Shop("WebShop", "H.C.Andersensvej 8");
+            shop.DisplayTitle();
+
             bool alive = true;
             while (alive)
             {
                 //start shop
-                Shop shop = new Shop("WebShop", "H.C.Andersensvej 8");
-                shop.DisplayTitle();
+                //Shop shop = new Shop("WebShop", "H.C.Andersensvej 8");
+                //shop.DisplayTitle();
 
                 //menu to choose 
                 ConsoleColor color = Console.ForegroundColor;
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.WriteLine("\n1. Create Customer \t 2. Create Employee  \t 3. Show existed employees");
                 Console.WriteLine("4. Show orders \t 5. Close Shop");
-                Console.WriteLine("Enter number of choice:");
+                Console.Write("Enter number of choice:");
                 Console.ForegroundColor = color;
                 try
                 {
@@ -68,10 +69,10 @@ namespace ShopApp
 
         }
 
-        private static void DoSomething()
-        {
-            throw new NotImplementedException();
-        }
+        //private static void DoSomething()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         private static void ShowOrders()
         {
@@ -94,12 +95,12 @@ namespace ShopApp
             employees[4] = new Employee("Jocker", 10000, Employee.EmployeeStatus.Boss, CustomerType.big);
 
             //display employees ordered by status
-            foreach (Employee employee in employees)
-            {
-                Console.WriteLine(employee);
-            }
-            Console.WriteLine();
-            Console.Clear();
+            //foreach (Employee employee in employees)
+            //{
+            //    Console.WriteLine(employee);
+            //}
+            //Console.WriteLine();
+            //Console.Clear();
             Array.Sort(employees);
             foreach (Employee employee in employees)
             {

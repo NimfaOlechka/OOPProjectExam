@@ -55,7 +55,7 @@ namespace ShopApp
 
         public override string ToString()
         {
-            return ($"\n {status} {name} with salary: {salary:C} and discount: {discount:P}");
+            return ($" {status} {name} with salary: {salary:C} and discount: {discount:P}");
         }
     }
 }
