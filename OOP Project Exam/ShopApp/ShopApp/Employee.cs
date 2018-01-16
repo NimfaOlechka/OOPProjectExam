@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ShopApp
 {
     
-    class Employee: IPerson, IComparable
+    class Employee: IPerson, IComparable<Employee>
     {
         
         internal enum EmployeeStatus { Boss, AccountManager,SalesManager,Worker};
@@ -41,12 +41,21 @@ namespace ShopApp
             Console.WriteLine($"\n You created {status} {name}, who has salary of {salary:C} and discount {discount:P}");
         }
 
-
-
+        //calling method to create order with delegate
         public void Buy(Callback callback)
         {
-            // call create order method
             callback(this);
+        }
+
+        public int CompareTo(Employee other)
+        {
+            return status.CompareTo(other.status);
+            //return (int)(salary - other.salary);
+        }
+
+        public override string ToString()
+        {
+            return ($"\n {status} {name} with salary: {salary:C} and discount: {discount:P}");
         }
     }
 }
