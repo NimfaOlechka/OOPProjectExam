@@ -1,0 +1,7 @@
+C:\Users\Olya\Documents\OOPProjectExam\OOP Project Exam\ShopApp\ShopApp\bin\Debug\ShopApp.exe.config
+C:\Users\Olya\Documents\OOPProjectExam\OOP Project Exam\ShopApp\ShopApp\bin\Debug\ShopApp.exe
+C:\Users\Olya\Documents\OOPProjectExam\OOP Project Exam\ShopApp\ShopApp\bin\Debug\ShopApp.pdb
+C:\Users\Olya\Documents\OOPProjectExam\OOP Project Exam\ShopApp\ShopApp\obj\Debug\ShopApp.csprojResolveAssemblyReference.cache
+C:\Users\Olya\Documents\OOPProjectExam\OOP Project Exam\ShopApp\ShopApp\obj\Debug\ShopApp.csproj.CoreCompileInputs.cache
+C:\Users\Olya\Documents\OOPProjectExam\OOP Project Exam\ShopApp\ShopApp\obj\Debug\ShopApp.exe
+C:\Users\Olya\Documents\OOPProjectExam\OOP Project Exam\ShopApp\ShopApp\obj\Debug\ShopApp.pdb
