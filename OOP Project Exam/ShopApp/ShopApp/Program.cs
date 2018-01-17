@@ -19,9 +19,7 @@ namespace ShopApp
             bool alive = true;
             while (alive)
             {
-                //start shop
-                //Shop shop = new Shop("WebShop", "H.C.Andersensvej 8");
-                //shop.DisplayTitle();
+                
 
                 //menu to choose 
                 ConsoleColor color = Console.ForegroundColor;
@@ -94,13 +92,7 @@ namespace ShopApp
             employees[3] = new Employee("Mira Money", 2000, Employee.EmployeeStatus.AccountManager, CustomerType.middle);
             employees[4] = new Employee("Jocker", 10000, Employee.EmployeeStatus.Boss, CustomerType.big);
 
-            //display employees ordered by status
-            //foreach (Employee employee in employees)
-            //{
-            //    Console.WriteLine(employee);
-            //}
-            //Console.WriteLine();
-            //Console.Clear();
+            
             Array.Sort(employees);
             foreach (Employee employee in employees)
             {

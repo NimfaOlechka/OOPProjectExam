@@ -24,17 +24,15 @@ namespace ShopApp_v2
                 Console.WriteLine(s);
                 Console.ResetColor();
             });
-            Console.Write("Write [base; start; middle or big]: ");
-            string type = Console.ReadLine().ToLower();
-            
+
+
             bool alive = true;
             while (alive)
             {
-                
                 //menu to choose 
                 ConsoleColor color = Console.ForegroundColor;
-                Console.ForegroundColor = ConsoleColor.DarkGreen;
-                Console.WriteLine("\n1. Buy something \t2. Delete something \t3. Show existed orders");
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("\n1. Buy something  2. Delete something   3. Show existed orders");
                 Console.WriteLine("4. Count Sum \t5. Close Shop");
                 Console.Write("Enter number of choice:");
                 Console.ForegroundColor = color;
@@ -51,21 +49,37 @@ namespace ShopApp_v2
                             tempOrder.DeleteItem(5);
                             break;
                         case 3:
-                            orders.Add(tempOrder);
+                            //Show current order status;
+                            Console.WriteLine("Current order information:");
+                            Console.WriteLine(tempOrder);
+                            //Show existed orders
+                            Console.WriteLine("Previous orders:");
                             foreach(Order o in orders)
-                            {
+                            { 
                                 Console.WriteLine(o);
                             }
                             
                             break;
                         case 4:
+                            Console.Write("Write [base; start; middle or big]: ");
+                            string type = Console.ReadLine().ToLower();
                             tempOrder.GetDiscount(type);
+                            orders.Add(tempOrder);
+                            //tempOrder = null;
+                            tempOrder = new Order();
+                            tempOrder.RegisterMessageDelegate((string s) =>
+                            {
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine(s);
+                                Console.ResetColor();
+                            });
+
                             break;
                         case 5:
                             alive = false;
                             continue;
                     }
-                    //DoSomething();
+                    
                 }
                 catch (Exception ex)
                 {
@@ -75,23 +89,8 @@ namespace ShopApp_v2
                     Console.ForegroundColor = color;
                 }
             }
-            //Console.ReadKey();
+           
         }
-
-        private static void ShowExistedOrders()
-        {
-            Console.Write("nothing to show yet!");
-        }
-
-        //private static void DeleteItem(Order order)
-        //{
-            
-        //}
-
-        //private static void CreateOrder()
-        //{
-            
-            
-        //}
+        
     }
 }
