@@ -33,20 +33,20 @@ It starts with showing title of the Shop and invites user to choose option with 
        asking a user to enter price of item. User should enter "-1" to stop add items to cart and get to see: Sum of order, Discount and TotalSum.
 PS.:Price of item should be only integer or double or: warning message would be shown and user would be thrown out from method to the main menu.
 
- 2.Create Employee: (similar to Customer) (implement of methods announced in IPerson interface)
+ 2. Create Employee: (similar to Customer) (implement of methods announced in IPerson interface)
   a) Makes an object of class Employee, filles it with  values and display information on console.
   b) Calls through delegate creation of object of class Order and implements method AddItem, by
        asking a user to enter price of item. User should enter "-1" to stop add items to cart and get to see: Sum of order, Discount and TotalSum.
 PS.:Price of item should be only integer or double or: warning message would be shown and user would be thrown out from method to the main menu.
  
-3.Show existed employees
+3. Show existed employees
  a) Creates an array of 5 employees and filles them with some data
  b) Sort them by Employee status (implementation IComparable interface )
- c)Display information about them on console.(by overridng ToString method)
+ c) Display information about them on console.(by overridng ToString method)
  
- 4.Show orders - this option are not implemented but represented in ShopApp_v2 as different project.
+ 4. Show orders - this option are not implemented but represented in ShopApp_v2 as different project.
 
- 5.Close Shop - closes the application.
+ 5. Close Shop - closes the application.
 
 ShopApp_v2 project summary: 
 ===================================================================================

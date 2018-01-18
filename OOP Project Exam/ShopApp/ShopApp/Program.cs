@@ -74,7 +74,7 @@ namespace ShopApp
 
         private static void ShowOrders()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Please, close this project and run ShopApp_v2 project to see the solution.");
         }
 
         /// <summary>

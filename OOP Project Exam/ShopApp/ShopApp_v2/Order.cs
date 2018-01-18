@@ -29,7 +29,7 @@ namespace ShopApp_v2
         public Order()//constructor setting default values
         {
             sum = 0;
-            discount = 0.0;
+            discount = 0;
             orderId = ++idCount;
             customerName = "Default customer";
         }
@@ -65,20 +65,20 @@ namespace ShopApp_v2
         }
 
         //setting discount values depending of customer type
-        public void GetDiscount(string customertype)
+        public void GetDiscount(int customerType)
         {
-            switch (customertype)
+            switch (customerType)
             {
-                case "base":
+                case 1: // base type with no discount
                     discount = 0.0;
                     break;
-                case "start":
+                case 2:// start type with discount of 5%
                     discount = 0.05;
                     break;
-                case "middle":
+                case 3:// middle type gives discount 10%
                     discount = 0.1;
                     break;
-                case "big":
+                case 4:// big discount 20%
                     discount = 0.2;
                     break;
                 default:
@@ -93,7 +93,7 @@ namespace ShopApp_v2
 
         public override string ToString()
         {
-            return ($"Order #: {OrderId} made {customerName} on Total Sum: {CurrentSum:C}. discount made: {discount:P}");
+            return ($"Order #: {OrderId} made {customerName} on Total Sum: {CurrentSum:C}. discount made: {discount:C}");
         }
     }
 }

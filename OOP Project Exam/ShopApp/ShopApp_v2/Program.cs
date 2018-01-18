@@ -27,7 +27,8 @@ namespace ShopApp_v2
                 Console.ResetColor();
             });
 
-
+            //Random rnd = new Random();
+            //double price = rnd.Next(0, 10);
             bool alive = true;
             while (alive)
             {
@@ -46,7 +47,9 @@ namespace ShopApp_v2
                     switch (command)//menu options
                     {
                         case 1:
-                            tempOrder.AddItem(5);
+                            Random rnd = new Random();
+                            double price = rnd.Next(1, 100);
+                            tempOrder.AddItem(price);
                             break;
 
                         case 2:
@@ -54,10 +57,13 @@ namespace ShopApp_v2
                             break;
 
                         case 3:
-                            Console.Write("Write [base; start; middle or big]: ");
-                            string type = Console.ReadLine().ToLower();
+                            //setting rendom customer type to get discount
+                            Random rnd1 = new Random();
+                            int type = rnd1.Next(1,4);
                             tempOrder.GetDiscount(type);
+                            //pushing current order into our collection
                             orders.Add(tempOrder);
+                            //starting new order efter this
                             tempOrder = new Order();
                             tempOrder.RegisterMessageDelegate((string s) =>
                             {
