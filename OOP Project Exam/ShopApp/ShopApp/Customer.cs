@@ -7,19 +7,21 @@ using System.Threading.Tasks;
 namespace ShopApp
 {
     class Customer : IPerson
-    {   
-       
+    {
+
         private string name;
         private double discount;
-        CustomerType type=CustomerType.start;
-     
+        private DateTime created;
+        CustomerType type = CustomerType.start;
+
         public Customer(string name, CustomerType type)
         {
             this.name = name;
             this.type = type;
-            this.discount = ((double)type)/100;
+            created = DateTime.Now;
+            discount = ((double)type) / 100;
         }
-        
+
         public string GetName()
         {
             return name;
@@ -31,13 +33,13 @@ namespace ShopApp
 
         public void DisplayInfo()
         {
-            Console.WriteLine($"\n You created  a new customer: {name}, he has discount {discount:P}");
+            Console.WriteLine($"\n You created  a new customer: {name}, he has discount {discount:P}. Created:{created}");
         }
         public void Buy(Callback callback)
         {
             //call method create order;
             callback(this);
-            
+
         }
 
     }

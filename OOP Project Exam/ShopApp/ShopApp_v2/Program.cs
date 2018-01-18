@@ -35,7 +35,7 @@ namespace ShopApp_v2
                 ConsoleColor color = Console.ForegroundColor;
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("\n1. Buy something  2. Delete something   3. Count Total Sum");
-                Console.WriteLine("4. Show existed orders  t5. Close Shop");
+                Console.WriteLine("4. Show existed orders  5. Close Shop");
 
                 Console.Write("Enter number of choice:");
                 Console.ForegroundColor = color;

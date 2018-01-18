@@ -8,10 +8,7 @@ namespace ShopApp
 {
     interface IPerson
     {
-       string GetName();
-       double GetDiscount();
-       
+        string GetName();
+        double GetDiscount();
     }
-    
-    
 }
