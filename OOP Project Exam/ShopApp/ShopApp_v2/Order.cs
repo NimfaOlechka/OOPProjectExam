@@ -8,71 +8,70 @@ namespace ShopApp_v2
 {
     class Order
     {
-        //variables of order
+        //delegate calls method to write messages to user after actions
         public delegate void MessageDelegate(string message);
 
         double sum; //keeping sum of the order
         protected int orderId;//automatisk id
         static int idCount = 0;// for setting unique id for each order
-        double discount;//discount from order
+        double discount;
         string customerName;
 
+        //create delegate variable
         MessageDelegate mesDel;
 
+        //register delegate
         public void RegisterMessageDelegate(MessageDelegate mes)
         {
             mesDel = mes;
         }
 
-        public Order()//constructor
+        public Order()//constructor setting default values
         {
             sum = 0;
             discount = 0.0;
             orderId = ++idCount;
             customerName = "Default customer";
         }
-
+        // property allows only read value of the sum
         public double CurrentSum
         {
             get { return sum; }
         }
-
-        // add or delete goods from basket
-        public void AddItem(double price)
+        //property to return orderID
+        public int OrderId
         {
-
-            sum += price;
-            //discount = sum*discount;
-            //sum -= discount;
-            mesDel($"You added an item on sum: {price}");
-            //mesDel($"Sum of ur order is: {sum}");
+            get { return orderId; }
         }
 
+        // add goods to the cart
+        public void AddItem(double price)
+        {
+            sum += price;
+                  mesDel($"You added an item on sum: {price}");
+        }
+        //delete item from basket 
         public void DeleteItem(double price)
         {
             if (price <= sum)
             {
                 sum -= price;
-                //sum += discount*10;
                 mesDel($"You deleted item on sum: {price}");
-                //mesDel($"Sum of ur order is: {sum}");
             }
             else
             {
                 mesDel("Impossible to delete unexisted!");
             }
-
         }
 
+        //setting discount values depending of customer type
         public void GetDiscount(string customertype)
         {
-
             switch (customertype)
             {
                 case "base":
                     discount = 0.0;
                     break;
-
                 case "start":
                     discount = 0.05;
                     break;
@@ -90,12 +89,11 @@ namespace ShopApp_v2
              discount = sum * discount;
              sum -= discount;
              mesDel($"Sum of ur order is {sum:C}");
-           
         }
 
         public override string ToString()
         {
-            return ($"Order #: {orderId} made {customerName} on Total Sum: {sum:C}. discount made: {discount:P}");
+            return ($"Order #: {OrderId} made {customerName} on Total Sum: {CurrentSum:C}. discount made: {discount:P}");
         }
     }
 }

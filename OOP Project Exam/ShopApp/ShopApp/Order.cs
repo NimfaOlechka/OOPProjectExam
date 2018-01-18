@@ -8,20 +8,30 @@ namespace ShopApp
 {
     class Order
     {
-        //private int orderId;
-        //private int customerId;
+        protected int orderId;
+        static int idCount = 0;
+        protected string customerName;
         protected double orderSum;
         protected double discount;
         protected double itemPrice;
 
-        public Order()
+        public Order()// constructor with default values
         {
-            //this.orderId = 0;
-            //this.customerId = 0;
-            this.orderSum = 0;
-            this.discount = 0;
+            orderId = ++idCount;
+            customerName = "Default Customer";
+            orderSum = 0;
+            discount = 0;
         }
 
+        public int OrderID
+        {
+            get { return orderId; }
+        }
+        /// <summary>
+        /// Buy item method: Ask user to enter manually price of item double or integer type
+        /// user should enter -1 to finsih buying and get total sum with discount 
+        /// </summary>
+        /// <param name="person"> Customer or Employee class as part of IPerson</param>
         public void AddItem(IPerson person)
         {
             discount = person.GetDiscount();
@@ -37,6 +47,7 @@ namespace ShopApp
             orderSum = subTotal - subTotal * discount;
 
             Console.WriteLine($"Sum of ur order {subTotal}. Total sum with discount is {orderSum}");
+            Console.WriteLine($"Thank you {person.GetName()} for your choice. Number of ur order is {OrderID} ");
         }
 
 

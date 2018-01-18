@@ -21,7 +21,7 @@ namespace ShopApp
             {
                 
 
-                //menu to choose 
+                //menu with options to choose 
                 ConsoleColor color = Console.ForegroundColor;
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.WriteLine("\n1. Create Customer \t 2. Create Employee  \t 3. Show existed employees");
@@ -77,29 +77,36 @@ namespace ShopApp
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Option 3 from menu: creates 5 employess 
+        /// Then displays them ordered by employee status field
+        /// </summary>
         private static void ShowExistedEmployees()
         {
             //create random employees 
             Employee[] employees = new Employee[5];
             Random rnd = new Random();
 
+            //just filling 3 employees with a little random data
             for (int i = 0; i < employees.Length - 2; i++)
             {
                 CustomerType rndCustomer = (CustomerType)rnd.Next(0, 2);
                 employees[i] = new Employee("Mr " + (i + 1), 50 - i, Employee.EmployeeStatus.Worker, rndCustomer);
             }
-
+            // an et par of them manually 
             employees[3] = new Employee("Mira Money", 2000, Employee.EmployeeStatus.AccountManager, CustomerType.middle);
             employees[4] = new Employee("Jocker", 10000, Employee.EmployeeStatus.Boss, CustomerType.big);
 
-            
+            //sort them efter status n display info
             Array.Sort(employees);
             foreach (Employee employee in employees)
             {
                 Console.WriteLine(employee);
             }
         }
-
+        /// <summary>
+        /// Customer class representation with otion to make an order
+        /// </summary>
         static void CreateCustomer()
         {
             //create customer and make an order;
@@ -107,6 +114,10 @@ namespace ShopApp
             customer.DisplayInfo();
             customer.Buy(CreateOrder);
         }
+
+        /// <summary>
+        /// Employee class representation with option to make an order
+        /// </summary>
         static void CreateEmployee()
         {
             //create employee and make an order;
@@ -115,7 +126,11 @@ namespace ShopApp
             employee1.Buy(CreateOrder);
 
         }
-
+        /// <summary>
+        /// Create Order method called via delegate.
+        /// User can enter integer or float values.
+        /// </summary>
+        /// <param name="person"> Customer or Employee, depending of user choice </param>
         static void CreateOrder(IPerson person)
         {
             Order order = new Order();
